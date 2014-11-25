@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/kevinb7/flatten",
   "devDependencies": {
+    "gulp": "^3.8.10",
     "testee": "^0.1.7"
   }
 }
