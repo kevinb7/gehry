@@ -1,0 +1,25 @@
+{
+  "name": "flatten",
+  "version": "0.0.1",
+  "description": "flatten =======",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinb7/flatten.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinb7/flatten/issues"
+  },
+  "homepage": "https://github.com/kevinb7/flatten",
+  "devDependencies": {
+    "testee": "^0.1.7"
+  }
+}
