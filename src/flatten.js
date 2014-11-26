@@ -1,4 +1,24 @@
+/**
+ *  The purpose of flatten/unflatten is serialize objects containing
+ *  cyclic references so that they can be ferried between execution
+ *  contexts, e.g. iframes, web workers, other windows
+ */
+
+// TODO: figure out a better name for flatten and put it on bower
+
+/**
+ * Converts the root object to an array of smaller objects where
+ * each object in the array contains properties that are either
+ * basic data types or objects of the form { id: number } to
+ * reference other objects/arrays in the original tree.
+ *
+ * @param {Object} root
+ * @returns {Array}
+ */
 function flatten(root) {
+    if (root === null || root === undefined) {
+        return null;
+    }
     var originalObjects = [];
     var flattenedObjects = [];
     var index = 0;
@@ -23,6 +43,8 @@ function flatten(root) {
                     id: originalObjects.indexOf(val),
                     isArray: val instanceof Array
                 };
+            } else if (typeof(val) === "function") {
+                acc[key] = "[function]";
             } else {
                 acc[key] = val;
             }
@@ -35,7 +57,17 @@ function flatten(root) {
     return flattenedObjects;
 }
 
+/**
+ * Converts an array produced by flatten back to an object with the
+ * same structure and data as the original root object passed into
+ * flatten.
+ *
+ * @param {Array} flattenedObjects
+ */
 function unflatten(flattenedObjects) {
+    if (flattenedObjects === null || flattenedObjects === undefined) {
+        return null;
+    }
     var originalObjects = [];
 
     var recurse = function (obj, id, isArray) {

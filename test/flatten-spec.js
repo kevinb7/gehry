@@ -76,4 +76,15 @@ describe("flatten.js", function () {
         expect(Object.keys(unflatTest)).to.have.length(1);
         expect(Object.keys(unflatTest.test)).to.have.length(1);
     });
+
+    it("should handle being passed null/undefined", function () {
+        expect(unflatten(flatten(undefined))).to.be(null);
+        expect(unflatten(flatten(null))).to.be(null);
+    });
+
+    it("should handle empty objects", function () {
+        var flat = flatten({});
+        var unflat = unflatten(flat);
+        expect(Object.keys(unflat)).to.have.length(0);
+    });
 });
