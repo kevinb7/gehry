@@ -1,8 +1,8 @@
 /*global describe, it, beforeEach, afterEach */
 
-describe("flatten.js", function () {
+describe("teleporter.js", function () {
     it("should work on hierarchical objects", function () {
-        var flat = flatten({
+        var flat = teleporter.flatten({
             x: 5,
             y: 10,
             sub: {
@@ -13,7 +13,7 @@ describe("flatten.js", function () {
             msg: "hello"
         });
 
-        var obj = unflatten(flat);
+        var obj = teleporter.unflatten(flat);
 
         expect(obj.x).to.be(5);
         expect(obj.y).to.be(10);
@@ -24,11 +24,11 @@ describe("flatten.js", function () {
     });
 
     it("should work on arrays", function () {
-        var flat = flatten({
+        var flat = teleporter.flatten({
             a: [1, 2, 3]
         });
 
-        var obj = unflatten(flat);
+        var obj = teleporter.unflatten(flat);
 
         expect(obj.a).to.be.an(Array);
         expect(obj.a).to.have.length(3);
@@ -51,8 +51,8 @@ describe("flatten.js", function () {
         objA.b = objB;
         objB.a = objA;
 
-        var flatA = flatten(objA);
-        var unflatA = unflatten(flatA);
+        var flatA = teleporter.flatten(objA);
+        var unflatA = teleporter.unflatten(flatA);
 
         expect(unflatA.x).to.be(5);
         expect(unflatA.y).to.be(10);
@@ -69,8 +69,8 @@ describe("flatten.js", function () {
             test: { id: 0 }
         };
 
-        var flatTest = flatten(test);
-        var unflatTest = unflatten(flatTest);
+        var flatTest = teleporter.flatten(test);
+        var unflatTest = teleporter.unflatten(flatTest);
 
         expect(unflatTest.test.id).to.be(0);
         expect(Object.keys(unflatTest)).to.have.length(1);
@@ -78,13 +78,13 @@ describe("flatten.js", function () {
     });
 
     it("should handle being passed null/undefined", function () {
-        expect(unflatten(flatten(undefined))).to.be(null);
-        expect(unflatten(flatten(null))).to.be(null);
+        expect(teleporter.unflatten(teleporter.flatten(undefined))).to.be(null);
+        expect(teleporter.unflatten(teleporter.flatten(null))).to.be(null);
     });
 
     it("should handle empty objects", function () {
-        var flat = flatten({});
-        var unflat = unflatten(flat);
+        var flat = teleporter.flatten({});
+        var unflat = teleporter.unflatten(flat);
         expect(Object.keys(unflat)).to.have.length(0);
     });
 });
