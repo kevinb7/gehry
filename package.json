@@ -1,7 +1,7 @@
 {
-  "name": "flatten",
+  "name": "teleporter",
   "version": "0.0.1",
-  "description": "flatten =======",
+  "description": "flatten/unflatten objects",
   "main": "index.js",
   "directories": {
     "test": "test"
