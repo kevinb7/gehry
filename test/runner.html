@@ -19,10 +19,9 @@
 <script>
 
   window.onload = function () {
-    if (mochaPhantomJS) {
+    if (window.mochaPhantomJS) {
       mochaPhantomJS.run();
-    }
-    else {
+    } else {
       mocha.run();
     }
   };
