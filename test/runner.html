@@ -3,14 +3,14 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>flatten.js Test Runer</title>
-  <link rel="stylesheet" href="../bower_components/mocha/mocha.css"/>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css"/>
 </head>
 <body>
 
 <div id="mocha"></div>
 <script src="../dist/teleporter.js"></script>
-<script src="../bower_components/mocha/mocha.js"></script>
-<script src="../bower_components/expect/index.js"></script>
+<script src="../node_modules/mocha/mocha.js"></script>
+<script src="../node_modules/expect.js/index.js"></script>
 <script>mocha.setup('bdd')</script>
 
 </body>
@@ -19,7 +19,12 @@
 <script>
 
   window.onload = function () {
-    mocha.run();
+    if (mochaPhantomJS) {
+      mochaPhantomJS.run();
+    }
+    else {
+      mocha.run();
+    }
   };
 
 </script>
