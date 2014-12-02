@@ -1,8 +1,16 @@
-[![Build Status](https://travis-ci.org/kevinb7/flatten.svg)](https://travis-ci.org/kevinb7/flatten)
+[![Build Status](https://travis-ci.org/kevinb7/gehry.svg)](https://travis-ci.org/kevinb7/gehry)
 
-# teleporter.js #
+# gehry.js #
 
-micro library that converts hierarchical structures to a flat ones (and back) preserving circular references
+gehry.js is a micro library that converts decomposes (deconstructs) a hierarchical object into an array
+of objects containing primitive properties only.  I can also reconstruct the original object and it preserves
+circular references.
+
+## Name ##
+
+Originally it was called "flatten" but there were too many projects with a similar name.  Then it was called
+"teleport", but that wasn't very accurate because it doesn't transport anything.  Finally, I settled on "gehry"
+after deconstructivist architect Frank Gehry.
 
 ## Features ##
 - works with plain old javascript objects (and arrays)

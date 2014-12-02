@@ -1,8 +1,8 @@
 /*global describe, it, beforeEach, afterEach */
 
-describe("teleporter.js", function () {
+describe("gehry.js", function () {
     it("should work on hierarchical objects", function () {
-        var flat = teleporter.flatten({
+        var flat = gehry.deconstruct({
             x: 5,
             y: 10,
             sub: {
@@ -13,7 +13,7 @@ describe("teleporter.js", function () {
             msg: "hello"
         });
 
-        var obj = teleporter.unflatten(flat);
+        var obj = gehry.reconstruct(flat);
 
         expect(obj.x).to.be(5);
         expect(obj.y).to.be(10);
@@ -24,11 +24,11 @@ describe("teleporter.js", function () {
     });
 
     it("should work on arrays", function () {
-        var flat = teleporter.flatten({
+        var flat = gehry.deconstruct({
             a: [1, 2, 3]
         });
 
-        var obj = teleporter.unflatten(flat);
+        var obj = gehry.reconstruct(flat);
 
         expect(obj.a).to.be.an(Array);
         expect(obj.a).to.have.length(3);
@@ -51,8 +51,8 @@ describe("teleporter.js", function () {
         objA.b = objB;
         objB.a = objA;
 
-        var flatA = teleporter.flatten(objA);
-        var unflatA = teleporter.unflatten(flatA);
+        var flatA = gehry.deconstruct(objA);
+        var unflatA = gehry.reconstruct(flatA);
 
         expect(unflatA.x).to.be(5);
         expect(unflatA.y).to.be(10);
@@ -69,8 +69,8 @@ describe("teleporter.js", function () {
             test: { id: 0 }
         };
 
-        var flatTest = teleporter.flatten(test);
-        var unflatTest = teleporter.unflatten(flatTest);
+        var flatTest = gehry.deconstruct(test);
+        var unflatTest = gehry.reconstruct(flatTest);
 
         expect(unflatTest.test.id).to.be(0);
         expect(Object.keys(unflatTest)).to.have.length(1);
@@ -78,13 +78,13 @@ describe("teleporter.js", function () {
     });
 
     it("should handle being passed null/undefined", function () {
-        expect(teleporter.unflatten(teleporter.flatten(undefined))).to.be(null);
-        expect(teleporter.unflatten(teleporter.flatten(null))).to.be(null);
+        expect(gehry.reconstruct(gehry.deconstruct(undefined))).to.be(null);
+        expect(gehry.reconstruct(gehry.deconstruct(null))).to.be(null);
     });
 
     it("should handle empty objects", function () {
-        var flat = teleporter.flatten({});
-        var unflat = teleporter.unflatten(flat);
+        var flat = gehry.deconstruct({});
+        var unflat = gehry.reconstruct(flat);
         expect(Object.keys(unflat)).to.have.length(0);
     });
 });
