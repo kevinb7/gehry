@@ -1,7 +1,7 @@
 {
   "name": "gehry",
-  "version": "0.0.1",
-  "description": "flatten/unflatten objects",
+  "version": "0.1.0",
+  "description": "deconstruct (and reconstruct) objects",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevinb7/flatten.git"
+    "url": "https://github.com/kevinb7/gehry.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kevinb7/flatten/issues"
+    "url": "https://github.com/kevinb7/gehry/issues"
   },
-  "homepage": "https://github.com/kevinb7/flatten",
+  "homepage": "https://github.com/kevinb7/gehry",
   "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^2.0.1",
