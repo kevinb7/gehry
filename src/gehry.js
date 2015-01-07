@@ -13,12 +13,12 @@
  * @param {Object} root
  * @returns {Array}
  */
-export function deconstruct(root: Object): Object[] {
+function deconstruct(root) {
     if (root === null || root === undefined) {
         return null;
     }
     var originalObjects = [];
-    var descontructedObjects: Object[] = [];
+    var descontructedObjects = [];
     var index = 0;
     var traverse = function(obj) {
         var result = Object.create(null);
@@ -62,13 +62,13 @@ export function deconstruct(root: Object): Object[] {
  *
  * @param {Array} descontructedObjects
  */
-export function reconstruct(descontructedObjects: Object[]) {
+function reconstruct(descontructedObjects) {
     if (descontructedObjects === null || descontructedObjects === undefined) {
         return null;
     }
     var originalObjects = [];
 
-    var recurse = function (obj: Object, id: number, isArray?: boolean) {
+    var recurse = function (obj, id, isArray = false) {
         var result = isArray ? [] : Object.create(null);
         originalObjects[id] = result;
 
@@ -90,3 +90,5 @@ export function reconstruct(descontructedObjects: Object[]) {
     return recurse(descontructedObjects[0], 0);    // root object's id is always 0
 }
 
+exports.deconstruct = deconstruct;
+exports.reconstruct = reconstruct;
