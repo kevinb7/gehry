@@ -5,7 +5,7 @@ var source = require('vinyl-source-stream');
 
 gulp.task('compile', function () {
     return gulp.src('src/**/*.js')
-        .pipe(to5())
+        .pipe(to5({ format: { indent: { style: "    " } } } ))
         .pipe(gulp.dest('lib'));
 });
 
