@@ -1,8 +1,8 @@
 {
   "name": "gehry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "deconstruct (and reconstruct) objects",
-  "main": "index.js",
+  "main": "./lib/gehry.js",
   "directories": {
     "test": "test"
   },
@@ -26,7 +26,6 @@
     "mocha": "^2.0.1",
     "mocha-phantomjs": "^3.5.1",
     "phantomjs": "^1.9.12",
-    "tsbuild": "git://github.com/kevinb7/tsbuild",
     "vinyl-source-stream": "^1.0.0"
   }
 }
