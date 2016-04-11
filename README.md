@@ -8,9 +8,7 @@ circular references.
 
 ## Name ##
 
-Originally it was called "flatten" but there were too many projects with a similar name.  Then it was called
-"teleport", but that wasn't very accurate because it doesn't transport anything.  Finally, I settled on "gehry"
-after deconstructivist architect Frank Gehry.
+It's named after after the deconstructivist architect Frank Gehry.
 
 ## Features ##
 - works with plain old javascript objects (and arrays)
