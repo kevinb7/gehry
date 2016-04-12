@@ -1,4 +1,6 @@
 /*global describe, it, beforeEach, afterEach */
+var expect = require('expect.js');
+var gehry = require('../lib/gehry');
 
 describe("gehry.js", function () {
     it("should work on hierarchical objects", function () {
@@ -86,5 +88,15 @@ describe("gehry.js", function () {
         var flat = gehry.deconstruct({});
         var unflat = gehry.reconstruct(flat);
         expect(Object.keys(unflat)).to.have.length(0);
+    });
+
+    it('should handle objects with null/undefined values', function() {
+        var flat = gehry.deconstruct({
+            empty: null,
+            nothing: undefined
+        });
+        var unflat = gehry.reconstruct(flat);
+        expect(unflat.empty).to.be(null);
+        expect(unflat.nothing).to.be(undefined);
     });
 });
