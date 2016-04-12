@@ -1,4 +1,5 @@
 /*global describe, it, beforeEach, afterEach */
+var assert = require('assert');
 var expect = require('expect.js');
 var gehry = require('../lib/gehry');
 
@@ -98,5 +99,15 @@ describe("gehry.js", function () {
         var unflat = gehry.reconstruct(flat);
         expect(unflat.empty).to.be(null);
         expect(unflat.nothing).to.be(undefined);
+    });
+
+    it('should store arrays as arrays', function() {
+        var flat = gehry.deconstruct({
+            numbers: [1, 2, 3]
+        });
+        var unflat = gehry.reconstruct(flat);
+
+        assert.deepEqual(flat[1], [1, 2, 3]);
+        assert.deepEqual(unflat, { numbers: [1, 2, 3] });
     });
 });

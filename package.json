@@ -1,6 +1,6 @@
 {
   "name": "gehry",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "deconstruct (and reconstruct) objects",
   "main": "./lib/gehry.js",
   "directories": {
